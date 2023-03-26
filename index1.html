@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .program {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+
+<div class="program">
+
+    <div class="option">
+        <p>Введите сумму:</p>
+        <div class="currency">
+            <input type="text" id="money">
+            <select id="changeTo" onchange="convert()">
+                <option value="first">KZT</option>
+                <option value="second">USD</option>
+                <option value="third">EUR</option>
+            </select>
+        </div>
+    </div>
+
+    <div >
+        <h3>KZT (tenge)</h3>
+        <div class="currency">
+            <input id="kzt" type="text">
+        </div>
+    </div>
+
+
+    <div >
+        <h3>USD (dollar)</h3>
+        <div class="currency">
+            <input id = "usd" type="text">
+        </div>
+    </div>
+
+
+    <div>
+        <h3>EUR (euro)</h3>
+        <div class="currency">
+            <input id="euro" type="text">
+        </div>
+    </div>
+
+</div>
+<script>
+    function convert(){
+        let money2 = parseInt(money.value)
+        if(changeTo.value==="first") {
+            kzt.value="-"
+            usd.value=(money2/431).toFixed(2)
+            euro.value=(money2/509).toFixed(2)
+        }
+        else if (changeTo.value==="second"){
+            kzt.value=(money2*429).toFixed(2)
+            usd.value="-"
+            euro.value=((money2*429)/509).toFixed(2)
+        }
+        else {
+            kzt.value=(money2*507).toFixed(2)
+            usd.value=((money2*507)/431).toFixed(2)
+            euro.value="-"
+        }
+    }
+</script>
+</body>
+</html>
